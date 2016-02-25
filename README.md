@@ -8,8 +8,8 @@ Which company would you rather work at? Made with Express/React.
 
 ## Quickstart
 ```
-git clone https://github.com/nezaj/giphycloud giphy-cloud
-cd giphy-cloud
+git clone https://github.com/nezaj/would-you-rather-tech
+cd would-you-rather-tech
 npm install
 make build
 make dev-server // Start express server

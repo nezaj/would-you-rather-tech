@@ -1,3 +1,4 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path')
 
 const PATHS = {
@@ -5,6 +6,22 @@ const PATHS = {
   client: path.join(__dirname, 'src', 'client'),
   server: path.join(__dirname, 'src', 'server'),
   test: path.join(__dirname, 'test')
+}
+
+// Transpiles ES6+
+const JSX_LOADER = {
+  test: /\.jsx?$/,
+  include: [PATHS.client, PATHS.server],
+  loader: 'babel',
+  query: {
+    presets: ['es2015', 'react', 'stage-1']
+  }
+}
+
+// Lets me import and ultimately bundle my css up
+const CSS_LOADER = {
+  test: /\.css$/,
+  loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
 }
 
 module.exports = {
@@ -19,16 +36,9 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   module: {
-    loaders: [
-      {
-        // Lets me use ES6+ in my code!
-        test: /\.jsx?$/,
-        include: [PATHS.client, PATHS.server],
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react', 'stage-1']
-        }
-      }
-    ]
-  }
+    loaders: [JSX_LOADER, CSS_LOADER]
+  },
+  plugins: [
+    new ExtractTextPlugin('bundle.css', { allChunks: true })
+  ]
 };
