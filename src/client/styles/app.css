@@ -1,0 +1,46 @@
+/* Fix isse with floats
+ * See: http://www.sitepoint.com/clearing-floats-overview-different-clearfix-methods/
+ */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.header {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.companies-container {
+  margin: auto;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.company-1 {
+  width: 50%;
+  float: left;
+}
+
+.company-2 {
+  width: 50%;
+  float: right;
+}
+
+.company-logo {
+  width: 90%;
+  border: 1px solid black;
+}
+
+.next-button {
+  font-size: 18px;
+  padding: 10px;
+}
