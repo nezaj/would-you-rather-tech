@@ -17,7 +17,7 @@ export default class App extends Component {
   }
 
   componentDidMount () {
-    let url = 'http://localhost:3000/api/data'
+    let url = '/api/data'
     this.fetchEntries = request.get(url, (err, res) => {
       if (err) { console.log('ERROR') } // XXX: Properly handle this later
       let data = res.body

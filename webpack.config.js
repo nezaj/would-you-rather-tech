@@ -24,8 +24,18 @@ const CSS_LOADER = {
   loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
 }
 
+const devServerConfig = {
+  proxy: {
+    '/api/*': {
+      target: 'http://localhost:3000',
+      secure: false
+    }
+  }
+}
+
 module.exports = {
   devtool: 'eval',  // Helpful for debugging
+  devServer: devServerConfig,
   entry: path.join(PATHS.client, 'index.js'),
   output: {
     path: PATHS.build,
