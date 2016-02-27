@@ -24,9 +24,9 @@ function main (opts) {
 
   // Create backend store
   let store = _createStore(opts.store)
-  const env = process.env.NODE_ENV || 'development'
 
   // XXX: Make this development only, for now it's fine to bootstrap prod
+  // const env = process.env.NODE_ENV || 'development'
   bootstrap(opts.store, store, seed)
 
   app.store = store

@@ -67,7 +67,15 @@ export default class App extends Component {
     let side = e.target.getAttribute('data-side')
     let pairClone = _.cloneDeep(this.state.currentPair)
     side === 'left' ? pairClone.left_votes += 1 : pairClone.right_votes += 1
+
+    this.updatePairToStore(pairClone)
     this.setState({ currentPair: pairClone })
   };
 
+  /* ------------------- Store Methods ------------------- */
+  updatePairToStore (updatedPair) {
+    let id = updatedPair.id
+    let url = `/api/pairs/${id}`
+    request.post(url).send(updatedPair).end()
+  }
 }

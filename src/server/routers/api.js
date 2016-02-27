@@ -7,6 +7,7 @@ let router = express.Router()
 router.get('/data', listData)
 router.get('/companies', listCompanies)
 router.get('/pairs', listPairs)
+router.post('/pairs/:id', updatePair)
 
 /* --------- BEGIN Route handlers --------- */
 function listData (req, res) {
@@ -22,6 +23,13 @@ function listCompanies (req, res) {
 function listPairs (req, res) {
   let pairs = req.app.store.getPairs()
   res.json(pairs)
+}
+
+function updatePair (req, res) {
+  let id = req.params.id
+  let params = req.body
+  let updated = req.app.store.updatePair(id, params)
+  res.json(updated)
 }
 
 export default router
