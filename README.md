@@ -1,6 +1,7 @@
-### Would You Rather Tech
+### Would You Rather Tech (WIP)
 Which company would you rather work at? Made with Express/React.
-[See it live][WouldYouRather]
+[See it live][WouldYouRather]. Very much incomplete, will get around to
+finishing this later.
 
 ## Table of Contents
 * [Quickstart](#quickstart)
