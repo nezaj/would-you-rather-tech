@@ -61,6 +61,8 @@ export default class App extends Component {
     return pairs[idx]
   };
 
+
+
   /* ------------------- Event Handlers ------------------- */
   updateVote = (e) => {
     e.preventDefault()
